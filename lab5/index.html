@@ -27,7 +27,38 @@
                     </div>
                 </div>
         </div>
-        <div class="row">
+        <!-- navigation -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec1">Section 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec2">Section 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec3">Section 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec4">Section 4</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec5">Section 5</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navigation -->
+        <div class="row" id="sec1">
             <div class="col-12" style="min-height: 500px; background: url(img/wallpaper.jpg); background-position: center;">
                 <div class="row d-flex align-items-center" style="height: 100%; z-index: 5;">
                     <div class="col-md-6 col-sm-12 align-items-center justify-content-center" >
@@ -52,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="background-color: rgb(206, 193, 193);">
+        <div class="row" id="sec2" style="background-color: rgb(206, 193, 193);">
             <div class="row d-flex justify-content-around" style="padding-left: 25px; padding-right: 25px;">
                 <div class="custom-card col-md-3 col-sm-10" style="background-color: rgb(105, 153, 34); border-radius: 1px;">
                     <h3>Title 1</h3>
@@ -68,19 +99,48 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex justify-content-center" style="padding-top: 25px; padding-bottom: 25px;">
+        <div class="row d-flex justify-content-center" id="sec3" style="padding-top: 25px; padding-bottom: 25px;">
             <div class="col-md-3 col-sm-10">
-                <img src="img/happy_f_1.jpg" alt="" style="width: 100%;">
-                <h3>Title 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="accordion" id="accordionExample1">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <img src="img/happy_f_1.jpg" alt="" style="width: 100%;">
+                                    <h3>Title 1</h3>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample1">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        
             <div class="col-md-3 col-sm-10">
-                <img src="img/happy_f_1.jpg" alt="" style="width: 100%;">
-                <h3>Title 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="accordion" id="accordionExample2">
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <img src="img/happy_f_1.jpg" alt="" style="width: 100%;">
+                                    <h3>Title 2</h3>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="sec4">
             <div class="col-12 grey-section">
                 <div class="row d-flex justify-content-center inner-grey-section">
                 <img src="img/happy_f_1.jpg" class="round-img">
@@ -149,7 +209,7 @@
             <p class="col-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nam accusantium provident magnam ipsam cumque incidunt.</p>
         </div>
         <h2 id="title-rew">Відгуки від наших клієнтів</h2>
-        <div class="row">
+        <div id="sec5" class="row">
         <div class="col-md-4">
             <div class="card mt-3">
             <img src="img/client_1.jpg" class="card-img-top rounded-circle mx-auto mt-5" alt="Клієнт 1">
@@ -178,6 +238,41 @@
             </div>
         </div>
         </div>
+        <div class="container">
+            <h2 class="text-center">Card Header and Footer</h2>
+            <div class="card">
+                <div class="card-header"><a href="#">Шапка</a></div>
+                <div class="card-body"><a href="#sec1">Сеція 1</a></div>
+                <div class="card-footer"><a href="#sec5">Футер</a></div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="text-center mt-4">Сторінки</h2>
+            
+            <!-- Загальний контейнер для пагінації -->
+            <nav aria-label="Page navigation" class="d-flex justify-content-center">
+              <ul class="pagination">
+                <!-- Попередня сторінка -->
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+          
+                <!-- Сторінки -->
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+          
+                <!-- Наступна сторінка -->
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
