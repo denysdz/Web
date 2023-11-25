@@ -18,37 +18,57 @@ function funcTabB(x, y, z) {
 
 
 var xMin = -1;
-        var xMax = 1;
-        var deltaX = 0.2;
-        var yMin = -2;
-        var yMax = 2;
-        var deltaY = 0.2;
-        var z = 1.32;
+var xMax = 1;
+var deltaX = 0.2;
+var yMin = -2;
+var yMax = 2;
+var deltaY = 0.2;
+var z = 1.32;
 
-        var tableBody1 = document.getElementById('tableBody1');
-        var tableBody2 = document.getElementById('tableBody2');
+var tableBody1 = document.getElementById('tableBody1');
+var tableBody2 = document.getElementById('tableBody2');
 
-        for (var x = xMin; x <= xMax; x += deltaX) {
-            for (var y = yMin; y <= yMax; y += deltaY) {
-                var b = funcTabB(x, y, z);
-                var a = funcTabA(x, y, z, b);
+// Collect unique y values and x values
+var uniqueYValues = new Set();
+var uniqueXValues = new Set();
 
-                var row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${x.toFixed(2)}</td>
-                    <td>${y.toFixed(2)}</td>
-                    <td>${z.toFixed(2)}</td>
-                    <td>${b.toFixed(4)}</td>
-                `;
-                tableBody1.appendChild(row);
+for (var y = yMin; y <= yMax; y += deltaY) {
+    uniqueYValues.add(y.toFixed(2));
+    var row1 = document.createElement('tr');
+    row1.innerHTML = `<td>${y.toFixed(2) }</td>`;
+    
+    var row2 = document.createElement('tr');
+    row2.innerHTML = `<td>${y.toFixed(2)}</td>`;
 
-                var row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${x.toFixed(2)}</td>
-                    <td>${y.toFixed(2)}</td>
-                    <td>${z.toFixed(2)}</td>
-                    <td>${a.toFixed(4)}</td>
-                `;
-                tableBody2.appendChild(row)
-            }
+    for (var x = xMin; x <= xMax; x += deltaX) {
+        var b = funcTabB(x, y, z);
+        var a = funcTabA(x, y, z, b);
+
+        // Add unique x values
+        if (y === yMin) {
+            uniqueXValues.add(x.toFixed(2));
         }
+
+        row1.innerHTML += `<td>${b.toFixed(4)}</td>`;
+        row2.innerHTML += `<td>${a.toFixed(4)}</td>`;
+    }
+
+    tableBody1.appendChild(row1);
+    tableBody2.appendChild(row2);
+}
+
+// Create the header row for the first table
+var headerRow1 = document.createElement('tr');
+headerRow1.innerHTML = '<td>x/y</td>';
+for (var x of uniqueXValues) {
+    headerRow1.innerHTML += `<td>${x}</td>`;
+}
+tableBody1.insertBefore(headerRow1, tableBody1.firstChild);
+
+// Create the header row for the second table
+var headerRow2 = document.createElement('tr');
+headerRow2.innerHTML = '<td>x/y</td>';
+for (var x of uniqueXValues) {
+    headerRow2.innerHTML += `<td>${x}</td>`;
+}
+tableBody2.insertBefore(headerRow2, tableBody2.firstChild);
